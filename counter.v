@@ -1,32 +1,21 @@
-`timescale 1ns/10ps
+module low_counter
+#(parameter N=26, DIV = 25'd25000000)
+(input wire clock,
+output reg out);
 
-module testbench;
+reg [N:0] gen2;
+wire[N:0] gen2_next;
+wire counter_next;
 
-localparam T = 20;
-
-reg clock;
-reg enable;
-reg reset;
-
-//connect new_connect (); // TODO: add parameters
-
-always begin
-	clock = 1'd1;
-
-	#(T/2);
-	
-	clock = 1'd0;
-
-	#(T/2);
+always@(posedge clock)
+begin
+	gen2 <= gen2_next;
+	out <= out;
+	if (gen2 == DIV) begin
+		gen2 <= 0;
+		out <= ~out;
+	end
 end
 
-initial begin
-	enable = 1'd0;
-	reset = 1'd0;
-
-	#(T/2);
-
-	reset = 1'd1;
-	enable = 1'd1;
-end
+assign gen2_next=gen2 + 1'b1;
 endmodule
