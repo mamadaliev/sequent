@@ -1,14 +1,13 @@
-module coder (data, seg);
+module coder (in, out);
 
-input [3:0] data;
-output [6:0] seg;
+input [3:0] in;
+output [6:0] out;
 
 reg [6:0] code;
-
-assign seg = code;
+assign out = code;
 
 always@*
-    case (data)
+    case (in)
         4'b0000: code = 7'b1000000;
         4'b0001: code = 7'b1111001;
         4'b0010: code = 7'b0100100;
