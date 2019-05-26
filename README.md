@@ -15,7 +15,7 @@ Sequential input of a long number with offset for FPGA.
 <b>SHIFT</b> - shifts registers<br>
 
 ## Demo
-<img src="https://i.ibb.co/HTs9WG0/test.gif">
+<img src="https://i.ibb.co/VBcBk2R/test.png">
 
 ## Contribute
 For any problems, comments, or feedback please create an issue [here on GitHub](https://github.com/mamadaliev/input-numbers/issues).
