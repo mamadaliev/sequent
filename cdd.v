@@ -1,55 +1,57 @@
-module cdd (T, clock, reset, data, out0, out1, out3, out4, out5);
+/* 
+ * Combinatorical Digital Device (CDD)
+ * 
+ * 
+ * @version: 1.0 (beta)
+ * @author: Sherzod Mamadaliev
+ *          Yaroslav Cherepanov
+ * 
+ */
+module cdd (
+    clock,
+    reset,
+    data,
+    out0,
+    out1,
+    out2,
+    out3,
+    out4,
+    out5,
+    cnt
+);
 
 // inputs
-input T;
-input clock;
-input reset; // KEY0
-input [3:0] data; // SW0..SW9
+input clock;      // CLOCK_50
+input reset;      // KEY[0]
+input [3:0] data; // SW[0]..SW[9]
 
 // outputs
-output [3:0] out0; // HEX0
-output [3:0] out1; // HEX1
-output [3:0] out2; // HEX2
-output [3:0] out3; // HEX3
-output [3:0] out4; // HEX4
-output [3:0] out5; // HEX5
+output reg [3:0] out0; // HEX0
+output reg [3:0] out1; // HEX1
+output reg [3:0] out2; // HEX2
+output reg [3:0] out3; // HEX3
+output reg [3:0] out4; // HEX4
+output reg [3:0] out5; // HEX5
+output [2:0] cnt;
 
-// registers
-reg [3:0] memory0;
-reg [3:0] memory1;
-reg [3:0] memory2;
-reg [3:0] memory3;
-reg [3:0] memory4;
-reg [3:0] memory5;
+reg [3:0] shift_reg [5:0];
+reg [3:0] memory; // TODO:
+reg [3:0] state;   // for save the states
+reg [2:0] counter; // for counting tackts
 
-reg [3:0] memory; // TODO: in always code memory = data;
-
-wire [3:0] line;
-
-assign line = memory;
-
-// assigns
-assign out0 = memory0;
-assign out1 = memory1;
-assign out2 = memory2;
-assign out3 = memory3;
-assign out4 = memory4;
-assign out5 = memory5;
-
-reg [3:0] state; // max: 8
-reg [3:0] counter; // max: 8 (for  counting transitions of shift)
+assign cnt = counter;
 
 // states
 parameter RESET  = 0; // start program
-parameter WAIT   = 0; // wait to input data
-parameter OUTPUT = 0; // display numbers to 
-parameter READ   = 0; // reads numbers on switchers
-parameter SHIFT  = 0; // shift numbers
+parameter WAIT   = 1; // wait to input data
+parameter OUTPUT = 2; // display numbers
+parameter READ   = 3; // reads numbers on switchers
+parameter SHIFT  = 4; // shift numbers
 
-// state of transitions
+// block transitions
 always@(posedge clock or negedge reset)
 begin
-    if (reset) begin
+    if (!reset) begin
         state <= RESET; // state: 0
     end else begin
         case (state)
@@ -57,52 +59,73 @@ begin
                 state <= WAIT; // state: 1
 
             WAIT:
-                if (T == 4) begin
+                if (counter == 3'd2) begin
                     state <= OUTPUT; // state: 2
                 end
 
             OUTPUT:
-                if (T == 4) begin
+                if (counter == 3'd4) begin
                     state <= READ; // state: 3
                 end
 
             READ:
-                if (T == 4) begin
+                if (counter == 3'd6) begin
                     state <= SHIFT; // state: 4
                 end
 
             SHIFT:
-                if (T == 4) begin
-                    state <= OUTPUT; // state: 2
+                if (counter == 3'd7) begin
+                    state <= WAIT; // state: 2
                 end
         endcase
     end
 end
 
-// state of actions
-always@(posedge clock or negedge reset)
+// block states
+always@(posedge clock)
 begin
-    if (reset) begin
-        memory0 = 4'd0;
-        memory1 = 4'd0;
-        memory2 = 4'd0;
-        memory3 = 4'd0;
-        memory4 = 4'd0;
-        memory5 = 4'd0;
-    end else begin
-        case (state)
-            // RESET:
+    case (state)
+        RESET: begin
+            out0 = 4'd0;
+            out1 = 4'd0;
+            out2 = 4'd0;
+            out3 = 4'd0;
+            out4 = 4'd0;              
+            out5 = 4'd0;
+            counter = 3'd0;
+        end
 
-            // WAIT:
+        WAIT: begin
+            counter = counter + 1;
+        end 
 
-            OUTPUT:
-                line <= data;
+        OUTPUT: begin
+            out0 <= shift_reg[0];
+            out1 <= shift_reg[1];
+            out2 <= shift_reg[2];
+            out3 <= shift_reg[3];
+            out4 <= shift_reg[4];
+            out5 <= shift_reg[5];
+            counter = counter + 1;
+        end
 
-            //READ:
+        READ: begin
+            memory[0] <= data[0];
+            memory[1] <= data[1];
+            memory[2] <= data[2];
+            memory[3] <= data[3];
+            counter = counter + 1;
+        end
 
-            //SHIFT:
-
-        endcase
-    end
+        SHIFT: begin        
+            shift_reg[0] <= memory;
+            shift_reg[1] <= shift_reg[0];
+            shift_reg[2] <= shift_reg[1];
+            shift_reg[3] <= shift_reg[2];
+            shift_reg[4] <= shift_reg[3];
+            shift_reg[5] <= shift_reg[4];
+            counter = counter + 1;
+        end
+    endcase
 end
 endmodule
