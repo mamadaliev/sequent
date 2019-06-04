@@ -35,20 +35,20 @@ module cdd (
     output [2:0] cnt;
 
     // regs
-    reg [3:0] shift_reg [5:0];
-    reg [3:0] memory;
-    reg [3:0] state;   // for save the states
-    reg [2:0] counter; // for counting tackts
+    reg [3:0] shift_reg [5:0];  // for shift numbers
+    reg [3:0] memory;           // for save input data
+    reg [3:0] state;            // for save the states
+    reg [2:0] counter;          // for counting tackts
     
     // assigns
     assign cnt = counter;
 
     // states
-    parameter RESET  = 0; // start program
-    parameter WAIT   = 1; // wait to input data
-    parameter OUTPUT = 2; // display numbers
-    parameter READ   = 3; // reads numbers on switchers
-    parameter SHIFT  = 4; // shift numbers
+    parameter RESET  = 0;   // start program
+    parameter WAIT   = 1;   // wait to input data
+    parameter OUTPUT = 2;   // display numbers
+    parameter READ   = 3;   // reads numbers on switchers
+    parameter SHIFT  = 4;   // shift numbers
 
     // block transitions
     always@(posedge clock or negedge reset)
@@ -112,10 +112,7 @@ module cdd (
             end
 
             READ: begin
-                memory[0] <= data[0];
-                memory[1] <= data[1];
-                memory[2] <= data[2];
-                memory[3] <= data[3];
+                memory <= data;
                 counter = counter + 1;
             end
 
