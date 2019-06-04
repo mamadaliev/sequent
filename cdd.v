@@ -1,8 +1,8 @@
 /* 
- * Combinatorical Digital Device (CDD)
+ * Combinatorial digital device (CDD)
  * 
  * 
- * @version: 1.0 (beta)
+ * @version: 1.0
  * @author: Sherzod Mamadaliev
  *          Yaroslav Cherepanov
  * 
@@ -21,22 +21,22 @@ module cdd (
 );
 
     // inputs
-    input clock;      // CLOCK_50
-    input reset;      // KEY[0]
-    input [3:0] data; // SW[0]..SW[9]
+    input clock;
+    input reset;
+    input [3:0] data;
 
     // outputs
-    output reg [3:0] out0; // HEX0
-    output reg [3:0] out1; // HEX1
-    output reg [3:0] out2; // HEX2
-    output reg [3:0] out3; // HEX3
-    output reg [3:0] out4; // HEX4
-    output reg [3:0] out5; // HEX5
+    output reg [3:0] out0;
+    output reg [3:0] out1;
+    output reg [3:0] out2;
+    output reg [3:0] out3;
+    output reg [3:0] out4;
+    output reg [3:0] out5;
     output [2:0] cnt;
 
     // regs
     reg [3:0] shift_reg [5:0];
-    reg [3:0] memory; // TODO:
+    reg [3:0] memory;
     reg [3:0] state;   // for save the states
     reg [2:0] counter; // for counting tackts
     
