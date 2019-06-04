@@ -9,7 +9,7 @@ wire counter_next;
 
 always@(posedge clock)
 begin
-	gen2 <= gen2_next;
+    gen2 <= gen2_next;
 	out <= out;
 	if (gen2 == DIV) begin
 		gen2 <= 0;
