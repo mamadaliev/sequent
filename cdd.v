@@ -17,7 +17,7 @@ module cdd (
     out3,
     out4,
     out5,
-    cnt
+    ledr
 );
 
     // inputs
@@ -32,7 +32,7 @@ module cdd (
     output reg [3:0] out3;
     output reg [3:0] out4;
     output reg [3:0] out5;
-    output [2:0] cnt;
+    output [2:0] ledr;
 
     // regs
     reg [3:0] shift_reg [5:0];  // for shift numbers
@@ -41,18 +41,17 @@ module cdd (
     reg [2:0] counter;          // for counting tackts
     
     // assigns
-    assign cnt = counter;
+    assign ledr = counter;
 
     // states
-    parameter RESET  = 0;   // start program
-    parameter WAIT   = 1;   // wait to input data
-    parameter OUTPUT = 2;   // display numbers
-    parameter READ   = 3;   // reads numbers on switchers
-    parameter SHIFT  = 4;   // shift numbers
+    parameter RESET  = 0;       // start program
+    parameter WAIT   = 1;       // wait to input data
+    parameter OUTPUT = 2;       // display numbers
+    parameter READ   = 3;       // reads numbers on switchers
+    parameter SHIFT  = 4;       // shift numbers
 
     // block transitions
-    always@(posedge clock or negedge reset)
-    begin
+    always@(posedge clock or negedge reset) begin
         if (!reset) begin
             state <= RESET; // state: 0
         end else begin
@@ -84,15 +83,14 @@ module cdd (
     end
 
     // block states
-    always@(posedge clock)
-    begin
+    always@(posedge clock) begin
         case (state)
             RESET: begin
                 out0 = 4'd0;
                 out1 = 4'd0;
                 out2 = 4'd0;
                 out3 = 4'd0;
-                out4 = 4'd0;              
+                out4 = 4'd0;
                 out5 = 4'd0;
                 counter = 3'd0;
             end
