@@ -5,7 +5,7 @@ Sequential input of a long number with offset for FPGA.
 <a href="https://github.com/mamadaliev/input-numbers/blob/master/cdd.v">cdd.v</a> - combinatorical digital device<br>
 <a href="https://github.com/mamadaliev/input-numbers/blob/master/coder.v">coder.v</a> - data decoder<br>
 <a href="https://github.com/mamadaliev/input-numbers/blob/master/low_counter.v">low_counter.v</a> - lowering counter<br>
-<a href="https://github.com/mamadaliev/input-numbers/blob/master/connect.v">connect.v</a> - main module connecting all modules</br>
+<a href="https://github.com/mamadaliev/input-numbers/blob/master/main.v">main.v</a> - main module connecting all modules</br>
 
 ## States
 <b>RESET</b> - adjust to zero registers and counter<br>
