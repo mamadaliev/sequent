@@ -11,12 +11,12 @@ module connect (
 	ledr
 );
 
-    // ==========[ inputs ]==========
+    // inputs
     input clock;        // CLOCK50
     input reset;        // KEY[0]
     input [3:0] data;   // SW[0]...SW[3]
 
-    // ==========[ outputs ]==========
+    // outputs
     output [6:0] hex0;  // HEX[0]
     output [6:0] hex1;  // HEX[1]
     output [6:0] hex2;  // HEX[2]
@@ -25,7 +25,7 @@ module connect (
     output [6:0] hex5;  // HEX[5]
     output [2:0] ledr;  // LEDR[0]...LEDR[2]
 
-    // ==========[ wires ]==========
+    // wires
     wire low;
     wire [3:0] out0;
     wire [3:0] out1;
@@ -34,13 +34,13 @@ module connect (
     wire [3:0] out4;
     wire [3:0] out5;
 
-    // ==========[ low counter ]==========
+    // low counter
     low_counter counter (
         .in(clock),
         .out(low)
     );
 
-    // ==========[ cdd ]==========
+    // cdd
     cdd device (
         .clock(low),
          .reset(reset),
@@ -54,7 +54,7 @@ module connect (
         .cnt(ledr)
     );
 
-    // ==========[ coders ]==========
+    // coders
     coder coder0 (
         .in(out0),
         .out(hex0)
