@@ -1,11 +1,9 @@
-/* 
- * Combinatorial digital device (CDD)
- * 
- * 
+/*
+ * cdd.v
+ * Combinatorial digital device (CDD).
+ *
  * @version: 1.0
- * @author: Sherzod Mamadaliev
- *          Yaroslav Cherepanov
- * 
+ *
  */
 module cdd (
     clock,
