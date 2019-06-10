@@ -1,4 +1,4 @@
-module low_counter
+module lower
     #(parameter N=26, DIV = 25'd25000000)
     (input wire in,
     output reg out);
