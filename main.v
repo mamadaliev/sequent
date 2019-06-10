@@ -2,7 +2,7 @@
  * main.v
  * Main module connecting all modules.
  *
- * @license: MIT
+ * @license: Unlicense
  * @version: 1.0
  * @author: Sherzod Mamadaliev
  *          Yaroslav Cherepanov
