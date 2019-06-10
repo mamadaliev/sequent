@@ -22,4 +22,4 @@ For any problems, comments, or feedback please create an issue [here on GitHub](
 <br>
 
 ## Licence
-This software is released under the [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+This software is released under the [Unlicense](http://unlicense.org).
