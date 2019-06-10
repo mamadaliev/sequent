@@ -35,7 +35,7 @@ module connect (
     wire [3:0] out5;
 
     // low counter
-    low_counter counter (
+    lower counter (
         .in(clock),
         .out(low)
     );
