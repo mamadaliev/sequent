@@ -1,4 +1,14 @@
-module connect (
+/*
+ * main.v
+ * Main module connecting all modules.
+ *
+ * @license: MIT
+ * @version: 1.0
+ * @author: Sherzod Mamadaliev
+ *          Yaroslav Cherepanov
+ *
+ */
+module main (
 	clock, 
 	reset,
 	data,
