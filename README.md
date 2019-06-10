@@ -4,7 +4,7 @@ Sequential input of a long number with offset for FPGA.
 ## Modules
 <a href="https://github.com/mamadaliev/input-numbers/blob/master/cdd.v">cdd.v</a> - combinatorical digital device<br>
 <a href="https://github.com/mamadaliev/input-numbers/blob/master/coder.v">coder.v</a> - data decoder<br>
-<a href="https://github.com/mamadaliev/input-numbers/blob/master/low_counter.v">low_counter.v</a> - lowering counter<br>
+<a href="https://github.com/mamadaliev/input-numbers/blob/master/lower.v">lower.v</a> - lowering counter<br>
 <a href="https://github.com/mamadaliev/input-numbers/blob/master/main.v">main.v</a> - main module connecting all modules</br>
 
 ## States
@@ -14,7 +14,7 @@ Sequential input of a long number with offset for FPGA.
 <b>READ</b> - read data and write to register<br>
 <b>SHIFT</b> - shifts registers<br>
 
-## Demo
+## Demonstration
 <img src="https://i.ibb.co/VBcBk2R/test.png">
 
 ## Contribute
@@ -22,4 +22,4 @@ For any problems, comments, or feedback please create an issue [here on GitHub](
 <br>
 
 ## Licence
-Game of Life is released under the [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+This software is released under the [MIT license](https://en.wikipedia.org/wiki/MIT_License).
