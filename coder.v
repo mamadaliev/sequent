@@ -1,3 +1,10 @@
+/*
+ * coder.v
+ * Data decoder for display.
+ *
+ * @version: 1.0
+ *
+ */
 module coder (
     in,
     out
