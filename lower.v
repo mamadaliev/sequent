@@ -1,3 +1,10 @@
+/*
+ * lower.v
+ * Lowering counter to lower the clock takts.
+ *
+ * @version: 1.0
+ *
+ */
 module lower
     #(parameter N=26, DIV = 25'd25000000)
     (input wire in,
