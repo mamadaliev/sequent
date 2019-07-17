@@ -14,7 +14,7 @@ Sequential entries of a long number with offset for the FPGA microarchitecture o
 <b>READ</b> - read data and write to register<br>
 <b>SHIFT</b> - shifts registers<br>
 
-## Demonstration
+## Demo
 <img src="https://i.ibb.co/VBcBk2R/test.png">
 
 ## Contribute
