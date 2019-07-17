@@ -48,7 +48,7 @@ module cdd (
     parameter READ   = 3;       // reads numbers on switchers
     parameter SHIFT  = 4;       // shift numbers
 
-    // block transitions
+    // block of transitions
     always@(posedge clock or negedge reset) begin
         if (!reset) begin
             state <= RESET; // state: 0
@@ -80,7 +80,7 @@ module cdd (
         end
     end
 
-    // block states
+    // block of states
     always@(posedge clock) begin
         case (state)
             RESET: begin
