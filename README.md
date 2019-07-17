@@ -1,5 +1,5 @@
-# input-numbers
-Sequential input of a long number with offset for FPGA.
+# sequent
+Sequential entries of a long number with offset for the FPGA microarchitecture on system verilog.
 
 ## Modules
 <a href="https://github.com/mamadaliev/input-numbers/blob/master/cdd.v">cdd.v</a> - combinatorical digital device<br>
