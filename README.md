@@ -2,10 +2,10 @@
 Sequential entries of a long number with offset for the FPGA microarchitecture on system verilog.
 
 ## Modules
-<a href="https://github.com/mamadaliev/input-numbers/blob/master/cdd.v">cdd.v</a> - combinatorical digital device<br>
-<a href="https://github.com/mamadaliev/input-numbers/blob/master/coder.v">coder.v</a> - data decoder<br>
-<a href="https://github.com/mamadaliev/input-numbers/blob/master/lower.v">lower.v</a> - lowering counter<br>
-<a href="https://github.com/mamadaliev/input-numbers/blob/master/main.v">main.v</a> - main module connecting all modules</br>
+<a href="https://github.com/egnaf/sequent/blob/master/cdd.v">cdd.v</a> - combinatorical digital device<br>
+<a href="https://github.com/egnaf/sequent/blob/master/coder.v">coder.v</a> - data decoder<br>
+<a href="https://github.com/egnaf/sequent/blob/master/lower.v">lower.v</a> - lowering counter<br>
+<a href="https://github.com/egnaf/sequent/blob/master/main.v">main.v</a> - main module connecting all modules</br>
 
 ## States
 <b>RESET</b> - adjust to zero registers and counter<br>
@@ -18,7 +18,7 @@ Sequential entries of a long number with offset for the FPGA microarchitecture o
 <img src="https://i.ibb.co/VBcBk2R/test.png">
 
 ## Contribute
-For any problems, comments, or feedback please create an issue [here on GitHub](https://github.com/mamadaliev/input-numbers/issues).
+For any problems, comments, or feedback please create an issue [here](https://github.com/egnaf/sequent/issues).
 <br>
 
 ## Licence
