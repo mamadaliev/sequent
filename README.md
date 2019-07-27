@@ -30,4 +30,4 @@ For any problems, comments, or feedback please create an issue [here](https://gi
 <br>
 
 ## Licence
-This software is released under the [Unlicense](http://mitlicense.org).
+This software is released under the [MIT License](http://mitlicense.org).
