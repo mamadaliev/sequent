@@ -33,10 +33,10 @@ The **combinatorial digital device** module uses 4 states: RESET, WAIT, OUTPUT, 
 | READ | Read data and write to register |
 | SHIFT | Shifts registers |
 
-## Example
-<img src="https://i.ibb.co/VBcBk2R/test.png">
+## Video Example
+[<img src="https://i.ibb.co/VBcBk2R/test.png">](https://www.youtube.com/watch?v=wWEUiZvxiOs)
 
-## Licence
+## License
 This software is released under the [MIT License](http://mitlicense.org).
 
 ## Contributors
